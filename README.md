@@ -1,7 +1,7 @@
 wallaby-blog
 ============
 
-CouchDB-based blog for nodejs.
+CouchDB-based blog engine for nodejs.
 
 Installation
 ------------

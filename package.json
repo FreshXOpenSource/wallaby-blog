@@ -1,7 +1,7 @@
 {
   "name": "wallaby-blog",
-  "version": "0.0.4",
-  "description": "the high-level, caching, CouchDB library",
+  "version": "0.1",
+  "description": "CouchDB-based blog engine for nodejs",
   "url": "http://freshx.de/blog",
   "keywords": [
     "wallaby",
