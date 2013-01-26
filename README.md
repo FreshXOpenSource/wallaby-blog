@@ -41,4 +41,11 @@ start:
 node app.js
 ```
 
+Use the default templates:
+
+```bash
+ln -s node_modules/wallaby-blog/views
+ln -s node_modules/wallaby-blog/public
+```
+
 done
