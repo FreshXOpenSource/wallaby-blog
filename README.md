@@ -8,7 +8,7 @@ Installation
 
 First you need to install the node module with all dependencies with npm
 
-    npm install 
+    npm install https://github.com/FreshXOpenSource/wallaby-blog/tarball/RELEASE_0_1_0
 
 settings.json:
 
