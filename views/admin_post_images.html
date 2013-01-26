@@ -1,0 +1,73 @@
+{{#post}}
+{{>admin_post}}
+<ul class="nav nav-tabs">
+    <li><a href="/admin/post/{{_id}}/settings">Settings</a></li>
+    <li class="active"><a>Images</a></li>
+    <li><a href="/admin/post/{{_id}}/segments">Segments</a></li>
+    <li><a href="/admin/post/{{_id}}/attachments">Attachments</a></li>
+    <li><a href="/admin/post/{{_id}}/links">Links</a></li>
+    <li><a href="/admin/post/{{_id}}/preview">Preview</a></li>
+    {{^published}}<a href="/admin/post/{{_id}}/publish/images" class="btn btn-success" style="float:right">Publish</a>{{/published}}
+    {{#published}}<a href="/admin/post/{{_id}}/depublish/images" class="btn btn-warning" style="float:right">Depublish</a>{{/published}}
+</ul>
+
+{{#hasImages}}
+<form class="form" method="post" enctype="multipart/form-data" action="/admin/post/{{_id}}/images/save">
+    <ul class="thumbnails">
+        {{#images}}
+            <li class="span4">
+                <div class="thumbnail">
+                    <p style="min-height:260px;">
+                    <img src="/images/{{_id}}/{{attachment}}">
+                    </p>
+                    <p style="text-align:center;">
+                        {{#first}}
+                        <a class="btn disabled" style="float:left">Move left</a>
+                        {{/first}}
+                        {{^first}}
+                        <a class="btn" style="float:left" href="/admin/post/{{_id}}/images/moveleft/{{number}}">Move left</a>
+                        {{/first}}
+                        <a class="btn btn-danger" href="/admin/post/{{_id}}/images/delete/{{number}}">Delete</a>
+                        {{#last}}
+                        <a class="btn disabled" style="float:right">Move right</a>
+                        {{/last}}
+                        {{^last}}
+                        <a class="btn" href="/admin/post/{{_id}}/images/moveright/{{number}}" style="float:right">Move right</a>
+                        {{/last}}
+                    </p>
+                    <input style="width:276px;" type="text" placeholder="short description of picture" value="{{caption}}" name="caption_{{number}}">
+                </div>
+            </li>
+        {{/images}}
+    </ul>
+    <div class="row" style="height:10px"></div>
+    <div class="row">
+        <div class="span2">
+            <button type="submit" class="btn">Save captions</button>
+        </div>
+    </div>
+</form>
+{{/hasImages}}
+
+<form class="form" method="post" enctype="multipart/form-data" action="/admin/post/{{_id}}/images/add">
+    <div class="row contentbox" style="margin-left:0;padding:10px 0 10px 0"x>
+        <div class="span2">
+            <label>New file upload:</label>
+        </div>
+        <div class="span7">
+            <input type="file" name="file"></label>
+        </div>
+        <div class="span2">
+            <button type="submit" class="btn">Upload</button>
+        </div>
+    </div>
+</form>
+
+<h4>Quick multifile upload</h4>
+<pre>
+export SITE="https://user:password@host"
+for i in *.jpg;do curl --insecure -F "file=@$i" "$SITE/admin/post/{{_id}}/images/add";done
+</pre>
+
+
+{{/post}}

@@ -1,0 +1,81 @@
+<div id="lightbox_{{_id}}" class="lightbox hide fade" role="dialog" aria-hidden="true">
+    <div class='lightbox-header'>
+        <button type="button" class="close" data-dismiss="lightbox" aria-hidden="true">&times;</button>
+    </div>
+    <div class='lightbox-content'>
+        <div id="myCarousel_{{_id}}" class="carousel slide">
+            <div class="carousel-inner">
+                {{#images}}
+                    {{#active}}
+                    <div class="item active">
+                    {{/active}}
+                    {{^active}}
+                    <div class="item">
+                    {{/active}}
+                        {{#attachment}}<img src="/images/{{_id}}/{{attachment}}" style="max-width:800px;max-height:800px" alt=""/>{{/attachment}}
+                        {{#caption}}
+                            <div class="carousel-caption">
+                                <p>{{{caption}}}</p>
+                            </div>
+                        {{/caption}}
+                    </div>
+                {{/images}}
+            </div>
+            <a class="left carousel-control" href="#myCarousel_{{_id}}" data-slide="prev">&lsaquo;</a>
+            <a class="right carousel-control" href="#myCarousel_{{_id}}" data-slide="next">&rsaquo;</a>
+        </div>
+    </div>
+</div>
+
+<div class="postContent">
+    {{#segments}}
+        {{#text}}<p>{{{text}}}</p>{{/text}}
+        {{#image}}
+            {{#caption}}<div class="thumbnail">{{/caption}}
+            <a data-toggle="lightbox" href="#lightbox_{{_id}}" onclick="$('#myCarousel_{{_id}}').carousel({{imageNumber}})"><img class="normalImage" src="/images/{{_id}}/{{image}}" alt=""/></a>
+            {{#caption}}<p>{{{caption}}}</p></div>{{/caption}}
+        {{/image}}
+        {{#html}}{{{html}}}{{/html}}
+        {{#hasThumbnails}}
+            <ul class="thumbnails">
+                {{#thumbnails}}
+                    <li class="span4">
+                        {{#caption}}<div class="thumbnail">{{/caption}}
+                        <a data-toggle="lightbox" href="#lightbox_{{_id}}" onclick="$('#myCarousel_{{_id}}').carousel({{imageNumber}})"><img src="/images/{{_id}}/{{image}}" alt=""/></a>
+                        {{#caption}}<p>{{{caption}}}</p></div>{{/caption}}
+                    </li>
+                {{/thumbnails}}
+            </ul>
+        {{/hasThumbnails}}
+    {{/segments}}
+</div>
+
+<ul class="nav nav-list">
+    <li class="divider"></li>
+</ul>
+
+{{#hasAttachmentsOrLinks}}
+    <ul class="nav">
+{{/hasAttachmentsOrLinks}}
+
+{{#hasAttachments}}
+    {{#attachments}}
+        <li>
+            <a href="/posts/{{_id}}/{{{filenameUrlEncoded}}}" target="_blank">
+                {{filename}}
+                {{#license}}<span style="float:right">(license: {{license}})</span>{{/license}}
+            </a>
+        </li>
+    {{/attachments}}
+{{/hasAttachments}}
+
+{{#hasLinks}}
+    {{#links}}
+        <li><a href="{{url}}" target="_blank">{{name}}</a></li>
+    {{/links}}
+{{/hasLinks}}
+
+
+{{#hasAttachmentsOrLinks}}
+    </ul>
+{{/hasAttachmentsOrLinks}}

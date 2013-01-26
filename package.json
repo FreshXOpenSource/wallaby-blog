@@ -1,0 +1,43 @@
+{
+  "name": "blog",
+  "version": "0.0.1",
+  "description": "the high-level, caching, CouchDB library",
+  "url": "http://freshx.de/blog",
+  "keywords": [
+    "wallaby",
+    "blog",
+    "couch"
+  ],
+  "author": {
+    "name": "Rene Roessler",
+    "email": "rene@freshx.de"
+  },
+  "contributors": [
+    {
+      "name": "Dominik Roessler",
+      "email": "dominik@freshx.de"
+    },
+    {
+      "name": "Manuel Roessler",
+      "email": "manuel@freshx.de"
+    }
+  ],
+  "main": "./lib/blog",
+  "dependencies": {
+    "cradle": "https://github.com/FreshXOpenSource/cradle/tarball/47c5fb7f0f4ad81d8a67e8efc9d79c127ba6f775",
+    "async": "0.1.22", 
+    "elastical": "0.0.10",
+    "node-markdown": "0.1.1",
+    "bogart": "0.3.40",
+    "jquery": "1.8.3",
+    "promised-io": "0.2.3"
+  },
+  "devDependencies": {
+  },
+  "scripts": {
+  },
+  "engines": {
+    "node": ">=0.6.0"
+  },
+  "optionalDependencies": {}
+}

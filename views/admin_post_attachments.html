@@ -1,0 +1,57 @@
+{{#post}}
+{{>admin_post}}
+<ul class="nav nav-tabs">
+    <li><a href="/admin/post/{{_id}}/settings">Settings</a></li>
+    <li><a href="/admin/post/{{_id}}/images">Images</a></li>
+    <li><a href="/admin/post/{{_id}}/segments">Segments</a></li>
+    <li class="active"><a>Attachments</a></li>
+    <li><a href="/admin/post/{{_id}}/links">Links</a></li>
+    <li><a href="/admin/post/{{_id}}/preview">Preview</a></li>
+    {{^published}}<a href="/admin/post/{{_id}}/publish/attachments" class="btn btn-success" style="float:right">Publish</a>{{/published}}
+    {{#published}}<a href="/admin/post/{{_id}}/depublish/attachments" class="btn btn-warning" style="float:right">Depublish</a>{{/published}}
+
+</ul>
+
+{{#hasAttachments}}
+<form class="form" method="post" enctype="multipart/form-data" action="/admin/post/{{_id}}/attachments/save">
+    <ul class="thumbnails">
+        {{#attachments}}
+            <li class="span4">
+                <div class="thumbnail">
+                    <ul>
+                        <li>Content Type: {{content_type}}</li>
+                        <li>File Size: {{filesize}} </li>
+                    </ul>
+                    <p style="text-align:center;">
+                        <a class="btn btn-danger" href="/admin/post/{{_id}}/attachments/delete/{{number}}">Delete</a>
+                    </p>
+                    <input style="width:276px;" type="text" placeholder="filename" value="{{filename}}" name="filename_{{number}}">
+                    <input style="width:276px;" type="text" placeholder="license" value="{{license}}" name="license_{{number}}">
+                </div>
+            </li>
+        {{/attachments}}
+    </ul>
+    <div class="row" style="height:10px"></div>
+    <div class="row">
+        <div class="span2">
+            <button type="submit" class="btn">Save names</button>
+        </div>
+    </div>
+</form>
+{{/hasAttachments}}
+
+<form class="form" method="post" enctype="multipart/form-data" action="/admin/post/{{_id}}/attachments/add">
+    <div class="row contentbox" style="margin-left:0;padding:10px 0 10px 0"x>
+        <div class="span2">
+            <label>New file upload:</label>
+        </div>
+        <div class="span7">
+            <input type="file" name="file"></label>
+        </div>
+        <div class="span2">
+            <button type="submit" class="btn">Upload</button>
+        </div>
+    </div>
+</form>
+
+{{/post}}

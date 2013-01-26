@@ -1,0 +1,59 @@
+{{>admin_config}}
+<ul class="nav nav-tabs">
+    <li><a href="/admin/config/settings">Settings</a></li>
+    <li><a href="/admin/config/css">CSS</a></li>
+    <li><a href="/admin/config/disclaimer">Disclaimer</a></li>
+    <li class="active"><a>Images</a></li>
+    <li><a href="/admin/config/extra">Extra images</a></li>
+</ul>
+
+<form class="form" method="post" enctype="multipart/form-data" action="/admin/config/images">
+    <div class="tab-content">
+        <div class="tab-pane active">
+            <div class="row">
+                <div class="span2">
+                    <label>Background image</label>
+                </div>
+                <div class="span5">
+                    <img class="img-polaroid" src="/images/config/background.jpg">
+                </div>
+                <div class="span5">
+                    <label>File upload</label>
+                    <input type="file" name="background_jpg">
+                </div>
+            </div>
+            <div class="row" style="height:10px"></div>
+            <div class="row">
+                <div class="span2">
+                    <label>Favicon</label>
+                </div>
+                <div class="span5">
+                    <img class="img-polaroid" src="/images/config/favicon.ico">
+                </div>
+                <div class="span5">
+                    <label>File upload</label>
+                    <input type="file" name="favicon_ico">
+                </div>
+            </div>
+            <div class="row" style="height:10px"></div>
+            <div class="row">
+                <div class="span2">
+                    <label>Title image</label>
+                </div>
+                <div class="span5">
+                    <img class="img-polaroid" src="/images/config/titleImage.png">
+                </div>
+                <div class="span5">
+                    <label>File upload</label>
+                    <input type="file" name="titleImage_png">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="height:10px"></div>
+    <div class="row">
+        <div class="span2">
+            <button type="submit" class="btn">Upload</button>
+        </div>
+    </div>
+</form>

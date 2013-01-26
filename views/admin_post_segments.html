@@ -1,0 +1,223 @@
+{{#post}}
+<style>
+    button, input, textarea {width:100%}
+</style>
+<div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+        <a class="brand">{{title}}</a>
+        <ul class="nav">
+            <li><a href="/admin">Overview</a></li>
+            <li><a href="/admin/config">Config</a></li>
+            <li><a href="/admin/posts">Posts</a></li>
+            <li class="active"><a href="#">Post</a></li>
+        </ul>
+        <ul class="nav pull-right">
+            <li><a href="/">Back To Blog</a></li>
+        </ul>
+    </div>
+</div>
+
+<ul class="nav nav-tabs">
+    <li><a href="/admin/post/{{_id}}/settings">Settings</a></li>
+    <li><a href="/admin/post/{{_id}}/images">Images</a></li>
+    <li class="active"><a>Segments</a></li>
+    <li><a href="/admin/post/{{_id}}/attachments">Attachments</a></li>
+    <li><a href="/admin/post/{{_id}}/links">Links</a></li>
+    <li><a href="/admin/post/{{_id}}/preview">Preview</a></li>
+    {{^published}}<a href="/admin/post/{{_id}}/publish/segments" class="btn btn-success" style="float:right">Publish</a>{{/published}}
+    {{#published}}<a href="/admin/post/{{_id}}/depublish/segments" class="btn btn-warning" style="float:right">Depublish</a>{{/published}}
+</ul>
+
+<script>
+    var inputId = null;
+    var imgId = null;
+
+    function selectImage(image) {
+        document.getElementById(inputId).value=image;
+        document.getElementById(imgId).src="/images/{{_id}}/"+image;
+    }
+</script>
+
+<!-- Modal -->
+<div id="selectImageModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="selectImageModalLabel" aria-hidden="true" style="background-color:rgba(0,0,0,0.8);width:730px;margin:-300px 0 0 -370px;">
+  <div class="modal-header">
+    <h3 id="selectImageModalLabel">Pick Image</h3>
+  </div>
+  <div class="modal-body" style="max-height:500px;">
+    <ul class="thumbnails">
+        {{#images}}
+            <li class="span3">
+                <div class="thumbnail">
+                    <a onclick="selectImage('{{attachment}}')" data-dismiss="modal">
+                    <p style="min-height:200px;">
+                        <img src="/images/{{_id}}/{{attachment}}">
+                    </p>
+                    </a>
+                </div>
+            </li>
+        {{/images}}
+    </ul>
+  </div>
+  <div class="modal-footer" style="background-color:transparent">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button> 
+  </div>
+</div>
+
+<form id="segments" class="form" method="post" enctype="multipart/form" action="/admin/post/{{_id}}/segments">
+    {{#segments}}
+        <div id="segment_{{number}}" class="segment">
+            {{>admin_segment}}
+        </div>
+    {{/segments}}
+    <div class="row bottomSeparator" style="height:10px"></div>
+    <div class="row">
+        <div class="span2">
+            <button type="submit" class="btn">Save</button>
+        </div>
+        <div class="span2 offset8">
+            <div class="btn-group" style="float:right">
+                <button class="btn dropdown-toggle" data-toggle="dropdown">Add Segment <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a number="-1" type="text" class="addSegment">Text</a></li>
+                    <li><a number="-1" type="html" class="addSegment">HTML</a></li>
+                    <li><a number="-1" type="markdown" class="addSegment">Markdown</a></li>
+                    <li><a number="-1" type="image" class="addSegment">Image</a></li>
+                    <li><a number="-1" type="thumbnails" class="addSegment">Thumbnails</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+$(document).ready(function() {
+    $('div.btn-toolbar a.btn-down').each(function(){
+        $(this).click(function(){
+            if(!$(this).hasClass('disabled')) {
+                moveDown($(this));
+            }
+        });
+    });
+
+    $('div.btn-toolbar a.btn-up').each(function(){
+        $(this).click(function(){
+            if(!$(this).hasClass('disabled')) {
+                moveUp($(this));
+            }
+        });
+    });
+
+    $('div.btn-toolbar a.btn-delete').each(function(){
+        $(this).click(function(){
+            var num = $(this).attr('number');
+            deleteSegment(num);
+        });
+    });
+
+    $('a.addSegment').each(function(){
+        $(this).click(function(){
+            var type = $(this).attr('type');
+            var num = $(this).attr('number');
+            addSegment(type, num);
+        });
+    });
+
+});
+
+function attrRegex(obj, attr, num) {
+    if (obj.attr(attr)!=undefined){
+        obj.attr(attr, obj.attr(attr).replace(/([a-z]+_)[0-9]+(_[0-9]+)?/g, "$1"+num+"$2"));
+    }
+}
+
+function objRegex(obj,num) {
+    attrRegex(obj,'name',num);
+    attrRegex(obj,'id',num);
+}
+
+function setBtnNum(obj, num) {
+    obj.find('a.btn-move').attr('number', num);
+    obj.find('a.btn-delete').attr('number', num);
+    obj.find('a.addSegment').attr('number', num);
+}
+
+function setNumber(segment,num) {
+    segment.attr('id', 'segment_'+num);
+    segment.find('textarea, input').each(function() {
+        objRegex($(this),num);
+    });
+    setBtnNum(segment,num);
+}
+
+function setBtnState(obj, state) {
+    if(state) {
+        obj.removeClass('disabled');
+    }
+    else {
+        obj.addClass('disabled');
+    }
+}
+
+function setNumbers() {
+    var nr=0;
+    $('form#segments').children('.segment').each(function() {
+        setNumber($(this),nr++);
+
+        $(this).find("a.btn-move").each(function() {
+            setBtnState($(this),true);
+        });
+    });
+
+    if (nr>0)$('div#segment_0').find("a.btn-up").each(function() {
+        setBtnState($(this),false);
+    });
+
+    if (nr>0)$('div#segment_'+(nr-1)).find("a.btn-down").each(function() {
+        setBtnState($(this),false);
+    });
+}
+
+function move(upperNum, lowerNum) {
+    var a = $('div#segment_'+upperNum);
+    var b = $('div#segment_'+lowerNum);
+    b.after(a);
+
+    setNumbers();
+}
+
+function addSegment(t, num) {
+    var div;
+    if (parseInt(num) == -1) {
+        $('div.bottomSeparator').before('<div id="segment" class="segment"></div>');
+        div = $('div.bottomSeparator').prev();
+    } else {
+        $('div#segment_'+num).after('<div id="segment" class="segment"></div>');
+        div = $('div#segment_'+num).next();
+    }
+
+    div.load('/admin/segmentSkel/'+t);
+    setNumbers();
+}
+
+function deleteSegment(num) {
+    $('div#segment_'+num).animate({opacity: 0, height: 0}, 500, function() {
+        $(this).remove();
+        setNumbers();
+    });
+}
+
+function moveUp(el) {
+    var lowerNum = parseInt(el.attr('number'));
+    var upperNum = lowerNum-1;
+    
+    move(upperNum, lowerNum);
+}
+
+function moveDown(el) {
+    var upperNum = parseInt(el.attr('number'));
+    var lowerNum = upperNum+1;
+    
+    move(upperNum, lowerNum);
+}
+
+</script>
+{{/post}}

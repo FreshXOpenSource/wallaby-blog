@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{siteTitle}}</title>
+    <meta name="description" content="{{title}}">
+
+    <link href="/images/config/favicon.ico" rel="shortcut icon">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap-lightbox.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    {{#css}}
+        <style>
+            {{{css}}}
+        </style>
+    {{/css}}
+    <script>
+        var disqus_url = window.location.href.replace('http:','https:');
+    </script>
+  </head>
+
+  <body>
+    {{^error}}
+        {{#adminlink}}
+            <p style="position:fixed;right:5px;top:5px;">
+                <a href="/admin" class="btn btn-mini btn-inverse" style="opacity:0.5;-webkit-opacity:0.5;-moz-opacity:0.5;">Admin panel</a>
+            </p>
+        {{/adminlink}}
+        <div class="container">
+            <div class="row">
+                <div class="span12 contentbox header">
+                    <a href="/">
+                    {{#hasTitleImage}}
+                    <img class="title" src="/images/config/titleImage.png" alt=""/>
+                    {{/hasTitleImage}}
+                    {{^hasTitleImage}}
+                    <h1 class="title">{{title}}</h1>
+                    {{/hasTitleImage}}
+                    </a>
+                    <p class="lead subtitle">{{subtitle}}</p>
+                </div>
+            </div>
+            <div class="row" style="height:15px"></div>
+            <div class="row">
+                <div class="span8 contentbox">
+                    {{{body}}}
+                </div>
+                <div class="span4 contentbox">
+                    {{{sidebar}}}
+                    {{#hasSearch}}
+                    <form class="form-inline" onSubmit='window.location.href=$("#searchbutton").attr("href");return false;'>
+                        <input type="text" class="searchInput" placeholder="search in posts" value="{{searchKeyword}}" onkeyup='$("#searchbutton").attr("href","/search/"+this.value);'/>
+                        <a class="btn" id="searchbutton" href="/search/{{searchKeyword}}">Search</a>
+                    </form>
+                    {{/hasSearch}}
+                    {{#counts}}
+                    {{#hasLastPosts}}
+                        <h4>Last posts:</h4>
+                        <ul>
+                            {{#lastPosts}}
+                                <li><a href="/posts/{{_id}}">{{title}}</a></li>
+                            {{/lastPosts}}
+                        </ul>
+                    {{/hasLastPosts}}
+                    {{#hasDates}}
+                        <h4>Archive:</h4>
+                        <ul>
+                            {{#dates}}
+                                <li>
+                                    <a style="cursor:pointer;" data-toggle="collapse" data-target="#collapse_date_{{name}}">{{name}}</a>
+                                    <a href="/date/{{name}}"> ({{count}})</a>
+                                    <div id="collapse_date_{{name}}" class="collapse">
+                                        <ul>
+                                            {{#months}}
+                                                <li>
+                                                    <a style="cursor:pointer;" data-toggle="collapse" data-target="#collapse_date_{{year}}_{{month}}">{{name}}</a>
+                                                    <a href="/date/{{year}}/{{month}}"> ({{count}})</a>
+                                                    <div id="collapse_date_{{year}}_{{month}}" class="collapse">
+                                                    <ul>
+                                                        {{#titles}}
+                                                            <li><a href="/posts/{{_id}}">{{title}}</a></li>
+                                                        {{/titles}}
+                                                    </ul>
+                                                    </div>
+                                                </li>
+                                            {{/months}}
+                                        </ul>
+                                    </div>
+                                </li>
+                            {{/dates}}
+                        </ul>
+                    {{/hasDates}}
+                    {{#hasCategories}}
+                        <h4>Categories:</h4>
+                        <ul>
+                            {{#categories}}
+                                <li>
+                                    <a style="cursor:pointer;" data-toggle="collapse" data-target="#collapse_category_{{num}}">{{name}}</a>
+                                    <a href="/category/{{nameUrlEncoded}}"> ({{count}})</a>
+                                    <div id="collapse_category_{{num}}" class="collapse">
+                                        <ul>
+                                            {{#titles}}
+                                                <li><a href="/posts/{{_id}}">{{title}}</a></li>
+                                            {{/titles}}
+                                        </ul>
+                                    </div>
+                                </li>
+                            {{/categories}}
+                        </ul>
+                    {{/hasCategories}}
+                    {{/counts}}
+                </div>
+            </div>
+            <div class="row" style="height:15px"></div>
+            <div class="row">
+                <div class="span12 contentbox footer" style="text-align:center">
+                    Selfmade blog engine. <a href="/powered">Used technologies and libraries.</a> {{#disclaimer}}<a href="/disclaimer">Disclaimer.</a>{{/disclaimer}}
+                </div>
+            </div>
+        </div>
+    {{/error}}
+
+    {{#error}}
+    <div class="container">
+        <div class="row" style="height:10px">
+        </div>
+        <div class="row">
+            <div class="span10 offset1 contentbox" style="text-align:center;">
+              <h1>{{message}}</h1>
+              {{#solutionText}}
+              <p style="margin-top:2em;">
+                <a class="btn btn-primary btn-large" href="{{{solutionURL}}}">
+                  {{solutionText}}
+                </a>
+              </p>
+              {{/solutionText}}
+            </div>
+        </div>
+    </div>
+    {{/error}}
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap-lightbox.min.js"></script>
+  </body>
+</html>

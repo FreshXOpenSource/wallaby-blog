@@ -1,0 +1,21 @@
+<div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+        <a class="brand">{{title}}</a>
+        <ul class="nav">
+            <li class="active"><a href="#">Overview</a></li>
+            <li><a href="/admin/config">Config</a></li>
+            <li><a href="/admin/posts">Posts</a></li>
+        </ul>
+        <ul class="nav pull-right">
+            <li><a href="/">Back To Blog</a></li>
+        </ul>
+    </div>
+</div>
+
+<h3>Welcome!</h3>
+<a class="btn" href="/admin/config">Configure settings</a>
+<a class="btn" href="/admin/posts">Manage posts</a>
+{{#readme}}
+    <h3>Readme</h3>
+    <pre>{{readme}}</pre>
+{{/readme}}

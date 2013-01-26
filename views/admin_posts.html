@@ -1,0 +1,74 @@
+<div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+        <a class="brand">{{title}}</a>
+        <ul class="nav">
+            <li><a href="/admin">Overview</a></li>
+            <li><a href="/admin/config">Config</a></li>
+            <li class="active"><a href="#">Posts</a></li>
+        </ul>
+        <ul class="nav pull-right">
+            <li><a href="/">Back To Blog</a></li>
+        </ul>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Name</th>
+            {{#disqus_shortname}}
+                <th>Comments</th>
+            {{/disqus_shortname}}
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {{#posts}}
+        {{^published}}
+        <tr style="background-color:rgba(252,248,227,0.4)">
+        {{/published}}
+        {{#published}}
+        <tr style="background-color:rgba(223,240,216,0.4)">
+        {{/published}}
+
+            <td>{{date}}</td>
+            <td>{{name}}</td>
+            {{#disqus_shortname}}
+                <td>
+                    <a href='/posts/{{_id}}#disqus_thread' style="text-decoration:none;color:white;">0 Comments and 0 Reactions</a>
+                </td>
+            {{/disqus_shortname}}
+            <td>
+                <a href="/admin/post/{{_id}}/preview" class="btn">Preview</a>
+                <a href="/admin/post/{{_id}}" class="btn">Edit</a>
+                {{^published}}
+                <a href="/admin/posts/publish/{{_id}}" class="btn btn-success">Publish</a>
+                {{/published}}
+                {{#published}}
+                <a href="/admin/posts/depublish/{{_id}}" class="btn btn-warning">Depublish</a>
+                {{/published}}
+                <a href="/admin/posts/delete/{{_id}}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    {{/posts}}
+    </tbody>
+</table>
+
+<div class="row">
+    <div class="span2 offset10">
+        <a href="/admin/posts/create" class="btn">New post</a>
+    </div>
+</div>
+
+{{#disqus_shortname}}
+    <script type="text/javascript">
+    var disqus_shortname = '{{disqus_shortname}}';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    </script>
+{{/disqus_shortname}}

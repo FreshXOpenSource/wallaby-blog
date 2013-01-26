@@ -1,0 +1,24 @@
+<ul class="breadcrumb">
+  <li><a href="/">Home</a> <span class="divider">/</span></li>
+  <li class="active">{{name}}</li>
+</ul>
+
+<h2>{{name}}</h2>
+<span class="label label-info" style="margin-bottom:8px;">Posted {{date}}</span>
+{{#categories}}
+    <span class="label label-success" style="margin-bottom:8px;"><a href='/category/{{category}}' style="text-decoration:none;color:white;">{{category}}</a></span>
+{{/categories}}
+
+{{>post}}
+
+{{#disqus_shortname}}
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = '{{disqus_shortname}}';
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+{{/disqus_shortname}}

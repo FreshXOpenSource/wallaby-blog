@@ -1,0 +1,36 @@
+{{>admin_config}}
+<ul class="nav nav-tabs">
+    <li><a href="/admin/config/settings">Settings</a></li>
+    <li><a href="/admin/config/css">CSS</a></li>
+    <li><a href="/admin/config/disclaimer">Disclaimer</a></li>
+    <li><a href="/admin/config/images">Images</a></li>
+    <li class="active"><a>Extra images</a></li>
+</ul>
+
+<form class="form" method="post" enctype="multipart/form-data" action="/admin/config/extra">
+    <ul class="thumbnails">
+    {{#images}}
+        <li class="span4">
+            <div class="thumbnail">
+                <p style="min-height:260px;">
+                    <img src="/images/config/{{name}}">
+                </p>
+                <p>{{name}}</p>
+                <p style="text-align:center"><a class="btn btn-danger" href="/admin/config/extra/delete/{{name}}">Delete image</a></p>
+            </div>
+        </li>
+    {{/images}}
+    </ul>
+    <div class="row" style="height:10px"></div>
+    <div class="row contentbox" style="margin-left:0;padding:10px 0 10px 0"x>
+        <div class="span2">
+            <label>New file upload:</label>
+        </div>
+        <div class="span7">
+            <input type="file" name="file"></label>
+        </div>
+        <div class="span2">
+            <button type="submit" class="btn">Upload</button>
+        </div>
+    </div>
+</form>

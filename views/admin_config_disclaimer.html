@@ -1,0 +1,27 @@
+{{^noConfigDoc}}
+{{>admin_config}}
+<ul class="nav nav-tabs">
+    <li><a href="/admin/config/settings">Settings</a></li>
+    <li><a href="/admin/config/css">CSS</a></li>
+    <li class="active"><a>Disclaimer</a></li>
+    <li><a href="/admin/config/images">Images</a></li>
+    <li><a href="/admin/config/extra">Extra images</a></li>
+</ul>
+{{/noConfigDoc}}
+
+{{#config}}
+<form class="form" method="post" enctype="multipart/form-data" action="/admin/config/disclaimer">
+    <div class="row">
+        <div class="span12">
+            <label>Disclaimer</label>
+            <textarea type="text" name="disclaimer" rows="20">{{disclaimer}}</textarea>
+        </div>
+    </div>
+    <div class="row" style="height:10px"></div>
+    <div class="row">
+        <div class="span2">
+            <button type="submit" class="btn">Save</button>
+        </div>
+    </div>
+</form>
+{{/config}}

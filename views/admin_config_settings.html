@@ -1,0 +1,55 @@
+{{>admin_config}}
+<ul class="nav nav-tabs">
+    <li class="active"><a>Settings</a></li>
+    <li><a href="/admin/config/css">CSS</a></li>
+    <li><a href="/admin/config/disclaimer">Disclaimer</a></li>
+    <li><a href="/admin/config/images">Images</a></li>
+    <li><a href="/admin/config/extra">Extra images</a></li>
+</ul>
+
+{{#config}}
+<form class="form" method="post" enctype="multipart/form-data" action="/admin/config/settings">
+    <div class="row">
+        <div class="span4">
+            <label>Title</label>
+            <input type="text" placeholder="name of the blog" value="{{title}}" name="title">
+        </div>
+        <div class="span7 offset1">
+            <label>Subitle</label>
+            <input type="text" placeholder="something catchy" value="{{subtitle}}" name="subtitle">
+        </div>
+    </div>
+    <div class="row">
+        <div class="span2">
+            <label>Pagination</label>
+            <input type="checkbox" value="true" name="pagination" {{#pagination}}checked{{/pagination}}>
+        </div>
+        <div class="span2">
+            <label>Show Admin Link</label>
+            <input type="checkbox" value="true" name="adminlink" {{#adminlink}}checked{{/adminlink}}>
+        </div>
+        <div class="span7 offset1">
+            <label>Posts per page</label>
+            <input type="number" value="{{#postsPerPage}}{{postsPerPage}}{{/postsPerPage}}{{^postsPerPage}}10{{/postsPerPage}}" name="postsPerPage">
+        </div>
+    </div>
+    <div class="row">
+        <div class="span12">
+            <label>Disqus Shortname</label>
+            <input type="text" placeholder="register at disqus.com" value="{{disqus_shortname}}" name="disqus_shortname">
+        </div>
+    </div>
+    <div class="row">
+        <div class="span12">
+            <label>Sidebar</label>
+            <textarea type="text" name="sidebar" rows="18">{{sidebar}}</textarea>
+        </div>
+    </div>
+    <div class="row" style="height:10px"></div>
+    <div class="row">
+        <div class="span2">
+            <button type="submit" class="btn">Save</button>
+        </div>
+    </div>
+</form>
+{{/config}}

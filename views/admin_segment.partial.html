@@ -1,0 +1,111 @@
+<div class="row">
+    <div class="span12">
+        <p>
+            {{#hasThumbnails}}
+                <h4 style="float:left">Thumbnails</h4>
+            {{/hasThumbnails}}
+            {{#hasImage}}
+                <h4 style="float:left">Image</h4>
+            {{/hasImage}}
+            {{#hasText}}
+                <h4 style="float:left">Text</h4>
+            {{/hasText}}
+            {{#hasHtml}}
+                <h4 style="float:left">HTML</h4>
+            {{/hasHtml}}
+            {{#hasMarkdown}}
+                <h4 style="float:left">Markdown</h4>
+            {{/hasMarkdown}}
+            <div class="btn-toolbar" style="float:right">
+                {{#first}}
+                    <a class="btn btn-move btn-up disabled" number="{{number}}">Move Up</a>
+                {{/first}}
+                {{^first}}
+                    <a class="btn btn-move btn-up" number="{{number}}">Move Up</a>
+                {{/first}}
+                {{#last}}
+                    <a class="btn btn-move btn-down disabled" number="{{number}}">Move Down</a>
+                {{/last}}
+                {{^last}}
+                    <a class="btn btn-move btn-down" number="{{number}}">Move Down</a>
+                {{/last}}
+                <div class="btn-group">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">Add Segment Below <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a number="{{number}}" type="text" class="addSegment">Text</a></li>
+                        <li><a number="{{number}}" type="html" class="addSegment">HTML</a></li>
+                        <li><a number="{{number}}" type="markdown" class="addSegment">Markdown</a></li>
+                        <li><a number="{{number}}" type="image" class="addSegment">Image</a></li>
+                        <li><a number="{{number}}" type="thumbnails" class="addSegment">Thumbnails</a></li>
+                    </ul>
+                </div>
+                <a class="btn btn-danger btn-delete" number="{{number}}">Delete Segment</a>
+            </div>
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="span12">
+        {{#hasThumbnails}}
+        <div class="span8 offset2">
+            <ul class="thumbnails">
+                <li class="span4">
+                    <a href="#selectImageModal" data-toggle="modal" onclick="imgId='img_{{number}}_0';inputId='image_{{number}}_0'">
+                        {{#image_0}}
+                            <img id="img_{{number}}_0" src="/images/{{_id}}/{{image_0}}"/>
+                        {{/image_0}}
+                        {{^image_0}}
+                            <img id="img_{{number}}_0" src="/img/pleaseClickToSelectPicture.png"/>
+                        {{/image_0}}
+                    </a>
+                </li>
+                <li class="span4">
+                    <a href="#selectImageModal" data-toggle="modal" onclick="imgId='img_{{number}}_1';inputId='image_{{number}}_1'">
+                        {{#image_1}}
+                            <img id="img_{{number}}_1" src="/images/{{_id}}/{{image_1}}"/>
+                        {{/image_1}}
+                        {{^image_1}}
+                            <img id="img_{{number}}_1" src="/img/pleaseClickToSelectPicture.png"/>
+                        {{/image_1}}
+                    </a>
+                </li>
+            </ul>
+
+            {{#image_0}}
+                <input type="hidden" id="image_{{number}}_0" name="thumbnails_{{number}}_0" value="{{image_0}}">
+            {{/image_0}}
+            {{^image_0}}
+                <input type="hidden" id="image_{{number}}_0" name="thumbnails_{{number}}_0" value="">
+            {{/image_0}}
+            {{#image_1}}
+                <input type="hidden" id="image_{{number}}_1" name="thumbnails_{{number}}_1" value="{{image_1}}">
+            {{/image_1}}
+            {{^image_1}}
+                <input type="hidden" id="image_{{number}}_1" name="thumbnails_{{number}}_1" value="">
+            {{/image_1}}
+        </div>
+        {{/hasThumbnails}}
+        {{#hasImage}}
+        <div class="span6 offset3">
+            <a href="#selectImageModal" data-toggle="modal" onclick="imgId='img_{{number}}';inputId='image_{{number}}'">
+                {{#image}}
+                    <img id="img_{{number}}" src="/images/{{_id}}/{{image}}">
+                {{/image}}
+                {{^image}}
+                    <img id="img_{{number}}" src="/img/pleaseClickToSelectPicture.png">
+                {{/image}}
+            </a>
+            <input type="hidden" id="image_{{number}}" name="image_{{number}}" value="{{image}}">
+        </div>
+        {{/hasImage}}
+        {{#hasText}}
+            <textarea type="text" id="text_{{number}}" name="text_{{number}}" rows="11">{{{text}}}</textarea>
+        {{/hasText}}
+        {{#hasHtml}}
+            <textarea type="text" name="html_{{number}}" rows="10">{{html}}</textarea>
+        {{/hasHtml}}
+        {{#hasMarkdown}}
+            <textarea type="text" name="markdown_{{number}}" rows="10">{{markdown}}</textarea>
+        {{/hasMarkdown}}
+    </div>
+</div>

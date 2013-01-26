@@ -1,0 +1,49 @@
+{{#post}}
+{{>admin_post}}
+<ul class="nav nav-tabs">
+    <li><a href="/admin/post/{{_id}}/settings">Settings</a></li>
+    <li><a href="/admin/post/{{_id}}/images">Images</a></li>
+    <li><a href="/admin/post/{{_id}}/segments">Segments</a></li>
+    <li><a href="/admin/post/{{_id}}/attachments">Attachments</a></li>
+    <li class="active"><a>Links</a></li>
+    <li><a href="/admin/post/{{_id}}/preview">Preview</a></li>
+    {{^published}}<a href="/admin/post/{{_id}}/publish/links" class="btn btn-success" style="float:right">Publish</a>{{/published}}
+    {{#published}}<a href="/admin/post/{{_id}}/depublish/links" class="btn btn-warning" style="float:right">Depublish</a>{{/published}}
+</ul>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>URL</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {{#links}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{url}}</td>
+            <td>
+                <a href="{{{url}}}" class="btn">Open</a>
+                <a href="/admin/post/{{_id}}/links/delete/{{number}}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    {{/links}}
+    </tbody>
+</table>
+
+<form class="form" method="post" enctype="multipart/form-data" action="/admin/post/{{_id}}/links/add">
+    <div class="row contentbox" style="margin-left:0;padding:10px 0 2px 0"x>
+        <div class="span4">
+            <input type="text" placeholder="link name" name="name">
+        </div>
+        <div class="span4 offset1">
+            <input type="text" placeholder="link url" name="url">
+        </div>
+        <div class="span1 offset1">
+            <button type="submit" class="btn">Add</button>
+        </div>
+    </div>
+</form>
+{{/post}}
