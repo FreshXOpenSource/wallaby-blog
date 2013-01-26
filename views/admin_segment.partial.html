@@ -40,6 +40,7 @@
                     </ul>
                 </div>
                 <a class="btn btn-danger btn-delete" number="{{number}}">Delete Segment</a>
+                <a class="btn btn-submit">Save</a>
             </div>
         </p>
     </div>
@@ -50,7 +51,7 @@
         <div class="span8 offset2">
             <ul class="thumbnails">
                 <li class="span4">
-                    <a href="#selectImageModal" data-toggle="modal" onclick="imgId='img_{{number}}_0';inputId='image_{{number}}_0'">
+                    <a href="#selectImageModal" data-toggle="modal" class="imageSelector" number="{{number}}" imgNumber="0"> 
                         {{#image_0}}
                             <img id="img_{{number}}_0" src="/images/{{_id}}/{{image_0}}"/>
                         {{/image_0}}
@@ -60,7 +61,7 @@
                     </a>
                 </li>
                 <li class="span4">
-                    <a href="#selectImageModal" data-toggle="modal" onclick="imgId='img_{{number}}_1';inputId='image_{{number}}_1'">
+                    <a href="#selectImageModal" data-toggle="modal" class="imageSelector" number="{{number}}" imgNumber="1"> 
                         {{#image_1}}
                             <img id="img_{{number}}_1" src="/images/{{_id}}/{{image_1}}"/>
                         {{/image_1}}
@@ -87,7 +88,7 @@
         {{/hasThumbnails}}
         {{#hasImage}}
         <div class="span6 offset3">
-            <a href="#selectImageModal" data-toggle="modal" onclick="imgId='img_{{number}}';inputId='image_{{number}}'">
+            <a href="#selectImageModal" data-toggle="modal" class="imageSelector" number="{{number}}">
                 {{#image}}
                     <img id="img_{{number}}" src="/images/{{_id}}/{{image}}">
                 {{/image}}
