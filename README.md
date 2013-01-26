@@ -35,17 +35,17 @@ app.js:
 require('wallaby-blog').start();
 ```
 
-start:
-
-```bash
-node app.js
-```
-
 Use the default templates:
 
 ```bash
 ln -s node_modules/wallaby-blog/views
 ln -s node_modules/wallaby-blog/public
+```
+
+start:
+
+```bash
+node app.js
 ```
 
 done
