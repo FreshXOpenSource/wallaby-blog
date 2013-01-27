@@ -1,6 +1,6 @@
 {
   "name": "wallaby-blog",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "CouchDB-based blog engine for nodejs",
   "url": "http://freshx.de/blog",
   "keywords": [
