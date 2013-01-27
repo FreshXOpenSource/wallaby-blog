@@ -1,37 +1,37 @@
 {{#post}}
 {{>admin_post}}
 <ul class="nav nav-tabs">
-    <li class="active"><a>Settings</a></li>
-    <li><a href="/admin/post/{{_id}}/images">Images</a></li>
-    <li><a href="/admin/post/{{_id}}/segments">Segments</a></li>
-    <li><a href="/admin/post/{{_id}}/attachments">Attachments</a></li>
-    <li><a href="/admin/post/{{_id}}/links">Links</a></li>
-    <li><a href="/admin/post/{{_id}}/preview">Preview</a></li>
-    {{^published}}<a href="/admin/post/{{_id}}/publish/settings" class="btn btn-success" style="float:right">Publish</a>{{/published}}
-    {{#published}}<a href="/admin/post/{{_id}}/depublish/settings" class="btn btn-warning" style="float:right">Depublish</a>{{/published}}
+    <li class="active"><a>{{#__}}Settings{{/__}}</a></li>
+    <li><a href="/admin/post/{{_id}}/images">{{#__}}Images{{/__}}</a></li>
+    <li><a href="/admin/post/{{_id}}/segments">{{#__}}Segments{{/__}}</a></li>
+    <li><a href="/admin/post/{{_id}}/attachments">{{#__}}Attachments{{/__}}</a></li>
+    <li><a href="/admin/post/{{_id}}/links">{{#__}}Links{{/__}}</a></li>
+    <li><a href="/admin/post/{{_id}}/preview">{{#__}}Preview{{/__}}</a></li>
+    {{^published}}<a href="/admin/post/{{_id}}/publish/settings" class="btn btn-success" style="float:right">{{#__}}Publish{{/__}}</a>{{/published}}
+    {{#published}}<a href="/admin/post/{{_id}}/depublish/settings" class="btn btn-warning" style="float:right">{{#__}}Depublish{{/__}}</a>{{/published}}
 </ul>
 
 <form class="form" method="post" enctype="multipart/form-data" action="/admin/post/{{_id}}/settings">
     <div class="row">
         <div class="span5">
-            <label>Name</label>
-            <input type="text" placeholder="name of the post" value="{{name}}" name="name">
+            <label>{{#__}}Name{{/__}}</label>
+            <input type="text" placeholder="{{#__}}name of the post{{/__}}" value="{{name}}" name="name">
         </div>
         <div class="span4 offset1">
-            <label>Date</label>
+            <label>{{#__}}Date{{/__}}</label>
             <input type="text" placeholder="yyyy-mm-dd hh:mm:ss" value="{{postedAt}}" name="postedAt">
         </div>
     </div>
     <div class="row">
         <div class="span10">
-            <label>Categories</label>
-            <input type="text" placeholder="categories (if any)" value="{{categories}}" name="categories">
+            <label>{{#__}}Categories{{/__}}</label>
+            <input type="text" placeholder="{{#__}}categories (if any){{/__}}" value="{{categories}}" name="categories">
         </div>
     </div>
     <div class="row" style="height:10px"></div>
     <div class="row">
         <div class="span2">
-            <button type="submit" class="btn">Save</button>
+            <button type="submit" class="btn">{{#__}}Save{{/__}}</button>
         </div>
     </div>
 </form>
