@@ -39,11 +39,12 @@ app.js:
 require('wallaby-blog').start();
 ```
 
-To use our default template files just create the following to symbolic links or copy the *views* and *public* folders
+To use our default template files just create the following to symbolic links or copy the *views*, *locales* and *public* folders
 
 ```bash
 ln -s node_modules/wallaby-blog/views
 ln -s node_modules/wallaby-blog/public
+ln -s node_modules/wallaby-blog/locales
 ```
 
 To start the blog-engine simply type

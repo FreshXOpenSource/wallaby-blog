@@ -2,12 +2,12 @@
     <div class="navbar-inner">
         <a class="brand">{{title}}</a>
         <ul class="nav">
-            <li><a href="/admin">Overview</a></li>
-            <li><a href="/admin/config">Config</a></li>
-            <li class="active"><a href="#">Posts</a></li>
+            <li><a href="/admin">{{#__}}Overview{{/__}}</a></li>
+            <li><a href="/admin/config">{{#__}}Config{{/__}}</a></li>
+            <li class="active"><a href="#">{{#__}}Posts{{/__}}</a></li>
         </ul>
         <ul class="nav pull-right">
-            <li><a href="/">Back To Blog</a></li>
+            <li><a href="/">{{#__}}Back To Blog{{/__}}</a></li>
         </ul>
     </div>
 </div>
@@ -15,12 +15,12 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Date</th>
-            <th>Name</th>
+            <th>{{#__}}Date{{/__}}</th>
+            <th>{{#__}}Name{{/__}}</th>
             {{#disqus_shortname}}
-                <th>Comments</th>
+                <th>{{#__}}Comments{{/__}}</th>
             {{/disqus_shortname}}
-            <th>Actions</th>
+            <th>{{#__}}Actions{{/__}}</th>
         </tr>
     </thead>
     <tbody>
@@ -36,19 +36,19 @@
             <td>{{name}}</td>
             {{#disqus_shortname}}
                 <td>
-                    <a href='/posts/{{_id}}#disqus_thread' style="text-decoration:none;color:white;">0 Comments and 0 Reactions</a>
+                    <a href='/posts/{{_id}}#disqus_thread' style="text-decoration:none;color:white;">{{#__}}0 Comments and 0 Reactions{{/__}}</a>
                 </td>
             {{/disqus_shortname}}
             <td>
-                <a href="/admin/post/{{_id}}/preview" class="btn">Preview</a>
-                <a href="/admin/post/{{_id}}" class="btn">Edit</a>
+                <a href="/admin/post/{{_id}}/preview" class="btn">{{#__}}Preview{{/__}}</a>
+                <a href="/admin/post/{{_id}}" class="btn">{{#__}}Edit{{/__}}</a>
                 {{^published}}
-                <a href="/admin/posts/publish/{{_id}}" class="btn btn-success">Publish</a>
+                <a href="/admin/posts/publish/{{_id}}" class="btn btn-success">{{#__}}Publish{{/__}}</a>
                 {{/published}}
                 {{#published}}
-                <a href="/admin/posts/depublish/{{_id}}" class="btn btn-warning">Depublish</a>
+                <a href="/admin/posts/depublish/{{_id}}" class="btn btn-warning">{{#__}}Depublish{{/__}}</a>
                 {{/published}}
-                <a href="/admin/posts/delete/{{_id}}" class="btn btn-danger">Delete</a>
+                <a href="/admin/posts/delete/{{_id}}" class="btn btn-danger">{{#__}}Delete{{/__}}</a>
             </td>
         </tr>
     {{/posts}}
@@ -57,7 +57,7 @@
 
 <div class="row">
     <div class="span2 offset10">
-        <a href="/admin/posts/create" class="btn">New post</a>
+        <a href="/admin/posts/create" class="btn">{{#__}}New post{{/__}}</a>
     </div>
 </div>
 

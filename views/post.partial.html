@@ -63,7 +63,7 @@
         <li>
             <a href="/posts/{{_id}}/{{{filenameUrlEncoded}}}" target="_blank">
                 {{filename}}
-                {{#license}}<span style="float:right">(license: {{license}})</span>{{/license}}
+                {{#license}}<span style="float:right">({{#__}}license: {{/__}}{{license}})</span>{{/license}}
             </a>
         </li>
     {{/attachments}}

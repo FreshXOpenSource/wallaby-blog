@@ -2,20 +2,20 @@
     <div class="navbar-inner">
         <a class="brand">{{title}}</a>
         <ul class="nav">
-            <li class="active"><a href="#">Overview</a></li>
-            <li><a href="/admin/config">Config</a></li>
-            <li><a href="/admin/posts">Posts</a></li>
+            <li class="active"><a href="#">{{#__}}Overview{{/__}}</a></li>
+            <li><a href="/admin/config">{{#__}}Config{{/__}}</a></li>
+            <li><a href="/admin/posts">{{#__}}Posts{{/__}}</a></li>
         </ul>
         <ul class="nav pull-right">
-            <li><a href="/">Back To Blog</a></li>
+            <li><a href="/">{{#__}}Back To Blog{{/__}}</a></li>
         </ul>
     </div>
 </div>
 
-<h3>Welcome!</h3>
-<a class="btn" href="/admin/config">Configure settings</a>
-<a class="btn" href="/admin/posts">Manage posts</a>
+<h3>{{#__}}Welcome!{{/__}}</h3>
+<a class="btn" href="/admin/config">{{#__}}Configure settings{{/__}}</a>
+<a class="btn" href="/admin/posts">{{#__}}Manage posts{{/__}}</a>
 {{#readme}}
-    <h3>Readme</h3>
+    <h3>{{#__}}Readme{{/__}}</h3>
     <pre>{{readme}}</pre>
 {{/readme}}
