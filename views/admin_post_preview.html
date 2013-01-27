@@ -1,19 +1,5 @@
 {{#post}}
-<!--TODO: BUG WITH PARTIALS/ONLY ONE PARTIAL AT A TIME? -->
-<div class="navbar navbar-inverse">
-    <div class="navbar-inner">
-        <a class="brand">{{title}}</a>
-        <ul class="nav">
-            <li><a href="/admin">{{#__}}Overview{{/__}}</a></li>
-            <li><a href="/admin/config">{{#__}}Config{{/__}}</a></li>
-            <li><a href="/admin/posts">{{#__}}Posts{{/__}}</a></li>
-            <li class="active"><a href="#">{{#__}}Post{{/__}}</a></li>
-        </ul>
-        <ul class="nav pull-right">
-            <li><a href="/">{{#__}}Back To Blog{{/__}}</a></li>
-        </ul>
-    </div>
-</div>
+{{>admin_post}}
 
 <ul class="nav nav-tabs">
     <li><a href="/admin/post/{{_id}}/settings">{{#__}}Settings{{/__}}</a></li>
