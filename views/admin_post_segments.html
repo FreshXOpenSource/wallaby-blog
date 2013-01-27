@@ -186,11 +186,21 @@ function setBtnState(obj, state) {
 function setNumbers() {
     var nr=0;
     $('form#segments').children('.segment').each(function() {
-        setNumber($(this),nr++);
+        setNumber($(this),nr);
 
         $(this).find("a.btn-move").each(function() {
             setBtnState($(this),true);
         });
+
+        $(this).find("a.btn-collapse").each(function() {
+            $(this).attr('data-target', '#collapse_'+nr);
+        });
+
+        $(this).find("div.collapse").each(function() {
+            $(this).attr('id', 'collapse_'+nr);
+        });
+
+        nr++;
     });
 
     if (nr>0)$('div#segment_0').find("a.btn-up").each(function() {
