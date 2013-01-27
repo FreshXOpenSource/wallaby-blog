@@ -1,14 +1,14 @@
 {{#post}}
 {{>admin_post}}
 <ul class="nav nav-tabs">
-    <li><a href="/admin/post/{{_id}}/settings">Settings</a></li>
-    <li><a href="/admin/post/{{_id}}/images">Images</a></li>
-    <li><a href="/admin/post/{{_id}}/segments">Segments</a></li>
-    <li class="active"><a>Attachments</a></li>
-    <li><a href="/admin/post/{{_id}}/links">Links</a></li>
-    <li><a href="/admin/post/{{_id}}/preview">Preview</a></li>
-    {{^published}}<a href="/admin/post/{{_id}}/publish/attachments" class="btn btn-success" style="float:right">Publish</a>{{/published}}
-    {{#published}}<a href="/admin/post/{{_id}}/depublish/attachments" class="btn btn-warning" style="float:right">Depublish</a>{{/published}}
+    <li><a href="/admin/post/{{_id}}/settings">{{#__}}Settings{{/__}}</a></li>
+    <li><a href="/admin/post/{{_id}}/images">{{#__}}Images{{/__}}</a></li>
+    <li><a href="/admin/post/{{_id}}/segments">{{#__}}Segments{{/__}}</a></li>
+    <li class="active"><a>{{#__}}Attachments{{/__}}</a></li>
+    <li><a href="/admin/post/{{_id}}/links">{{#__}}Links{{/__}}</a></li>
+    <li><a href="/admin/post/{{_id}}/preview">{{#__}}Preview{{/__}}</a></li>
+    {{^published}}<a href="/admin/post/{{_id}}/publish/attachments" class="btn btn-success" style="float:right">{{#__}}Publish{{/__}}</a>{{/published}}
+    {{#published}}<a href="/admin/post/{{_id}}/depublish/attachments" class="btn btn-warning" style="float:right">{{#__}}Depublish{{/__}}</a>{{/published}}
 
 </ul>
 
@@ -19,14 +19,14 @@
             <li class="span4">
                 <div class="thumbnail">
                     <ul>
-                        <li>Content Type: {{content_type}}</li>
-                        <li>File Size: {{filesize}} </li>
+                        <li>{{#__}}Content Type: {{/__}}{{content_type}}</li>
+                        <li>{{#__}}File Size: {{/__}}{{filesize}} </li>
                     </ul>
                     <p style="text-align:center;">
-                        <a class="btn btn-danger" href="/admin/post/{{_id}}/attachments/delete/{{number}}">Delete</a>
+                        <a class="btn btn-danger" href="/admin/post/{{_id}}/attachments/delete/{{number}}">{{#__}}Delete{{/__}}</a>
                     </p>
-                    <input style="width:276px;" type="text" placeholder="filename" value="{{filename}}" name="filename_{{number}}">
-                    <input style="width:276px;" type="text" placeholder="license" value="{{license}}" name="license_{{number}}">
+                    <input style="width:276px;" type="text" placeholder="{{#__}}filename{{/__}}" value="{{filename}}" name="filename_{{number}}">
+                    <input style="width:276px;" type="text" placeholder="{{#__}}license{{/__}}" value="{{license}}" name="license_{{number}}">
                 </div>
             </li>
         {{/attachments}}
@@ -34,7 +34,7 @@
     <div class="row" style="height:10px"></div>
     <div class="row">
         <div class="span2">
-            <button type="submit" class="btn">Save names</button>
+            <button type="submit" class="btn">{{#__}}Save names{{/__}}</button>
         </div>
     </div>
 </form>
@@ -43,13 +43,13 @@
 <form class="form" method="post" enctype="multipart/form-data" action="/admin/post/{{_id}}/attachments/add">
     <div class="row contentbox" style="margin-left:0;padding:10px 0 10px 0"x>
         <div class="span2">
-            <label>New file upload:</label>
+            <label>{{#__}}New file upload:{{/__}}</label>
         </div>
         <div class="span7">
             <input type="file" name="file"></label>
         </div>
         <div class="span2">
-            <button type="submit" class="btn">Upload</button>
+            <button type="submit" class="btn">{{#__}}Upload{{/__}}</button>
         </div>
     </div>
 </form>

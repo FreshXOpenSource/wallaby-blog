@@ -1,10 +1,10 @@
 <ul class="breadcrumb">
-  <li><a href="/">Home</a> <span class="divider">/</span></li>
+  <li><a href="/">{{#__}}Home{{/__}}</a> <span class="divider">/</span></li>
   <li class="active">{{name}}</li>
 </ul>
 
 <h2>{{name}}</h2>
-<span class="label label-info" style="margin-bottom:8px;">Posted {{date}}</span>
+<span class="label label-info" style="margin-bottom:8px;">{{#__}}Posted {{/__}}{{date}}</span>
 {{#categories}}
     <span class="label label-success" style="margin-bottom:8px;"><a href='/category/{{category}}' style="text-decoration:none;color:white;">{{category}}</a></span>
 {{/categories}}
