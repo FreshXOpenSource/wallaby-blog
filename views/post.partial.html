@@ -29,7 +29,7 @@
 
 <div class="postContent">
     {{#segments}}
-        {{#text}}<p>{{{text}}}</p>{{/text}}
+        {{#text}}<p>{{text}}</p>{{/text}}
         {{#image}}
             {{#caption}}<div class="thumbnail">{{/caption}}
             <a data-toggle="lightbox" href="#lightbox_{{_id}}" onclick="$('#myCarousel_{{_id}}').carousel({{imageNumber}})"><img class="normalImage" src="/images/{{_id}}/{{image}}" alt=""/></a>
