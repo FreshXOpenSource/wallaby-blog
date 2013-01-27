@@ -1,54 +1,54 @@
 {{>admin_config}}
 <ul class="nav nav-tabs">
-    <li class="active"><a>Settings</a></li>
+    <li class="active"><a>{{#__}}Settings{{/__}}</a></li>
     <li><a href="/admin/config/css">CSS</a></li>
-    <li><a href="/admin/config/disclaimer">Disclaimer</a></li>
-    <li><a href="/admin/config/images">Images</a></li>
-    <li><a href="/admin/config/extra">Extra images</a></li>
+    <li><a href="/admin/config/disclaimer">{{#__}}Disclaimer{{/__}}</a></li>
+    <li><a href="/admin/config/images">{{#__}}Images{{/__}}</a></li>
+    <li><a href="/admin/config/extra">{{#__}}Extra images{{/__}}</a></li>
 </ul>
 
 {{#config}}
 <form class="form" method="post" enctype="multipart/form-data" action="/admin/config/settings">
     <div class="row">
         <div class="span4">
-            <label>Title</label>
-            <input type="text" placeholder="name of the blog" value="{{title}}" name="title">
+            <label>{{#__}}Title{{/__}}</label>
+            <input type="text" placeholder="{{#__}}name of the blog{{/__}}" value="{{title}}" name="title">
         </div>
         <div class="span7 offset1">
-            <label>Subitle</label>
-            <input type="text" placeholder="something catchy" value="{{subtitle}}" name="subtitle">
+            <label>{{#__}}Subitle{{/__}}</label>
+            <input type="text" placeholder="{{#__}}something catchy{{/__}}" value="{{subtitle}}" name="subtitle">
         </div>
     </div>
     <div class="row">
         <div class="span2">
-            <label>Pagination</label>
+            <label>{{#__}}Pagination{{/__}}</label>
             <input type="checkbox" value="true" name="pagination" {{#pagination}}checked{{/pagination}}>
         </div>
         <div class="span2">
-            <label>Show Admin Link</label>
+            <label>{{#__}}Show Admin Link{{/__}}</label>
             <input type="checkbox" value="true" name="adminlink" {{#adminlink}}checked{{/adminlink}}>
         </div>
         <div class="span7 offset1">
-            <label>Posts per page</label>
+            <label>{{#__}}Posts per page{{/__}}</label>
             <input type="number" value="{{#postsPerPage}}{{postsPerPage}}{{/postsPerPage}}{{^postsPerPage}}10{{/postsPerPage}}" name="postsPerPage">
         </div>
     </div>
     <div class="row">
         <div class="span12">
-            <label>Disqus Shortname</label>
-            <input type="text" placeholder="register at disqus.com" value="{{disqus_shortname}}" name="disqus_shortname">
+            <label>{{#__}}Disqus Shortname{{/__}}</label>
+            <input type="text" placeholder="{{#__}}register at disqus.com{{/__}}" value="{{disqus_shortname}}" name="disqus_shortname">
         </div>
     </div>
     <div class="row">
         <div class="span12">
-            <label>Sidebar</label>
+            <label>{{#__}}Sidebar{{/__}}</label>
             <textarea type="text" name="sidebar" rows="18">{{sidebar}}</textarea>
         </div>
     </div>
     <div class="row" style="height:10px"></div>
     <div class="row">
         <div class="span2">
-            <button type="submit" class="btn">Save</button>
+            <button type="submit" class="btn">{{#__}}Save{{/__}}</button>
         </div>
     </div>
 </form>

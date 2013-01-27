@@ -1,14 +1,14 @@
 {{#post}}
 {{>admin_post}}
 <ul class="nav nav-tabs">
-    <li><a href="/admin/post/{{_id}}/settings">Settings</a></li>
-    <li class="active"><a>Images</a></li>
-    <li><a href="/admin/post/{{_id}}/segments">Segments</a></li>
-    <li><a href="/admin/post/{{_id}}/attachments">Attachments</a></li>
-    <li><a href="/admin/post/{{_id}}/links">Links</a></li>
-    <li><a href="/admin/post/{{_id}}/preview">Preview</a></li>
-    {{^published}}<a href="/admin/post/{{_id}}/publish/images" class="btn btn-success" style="float:right">Publish</a>{{/published}}
-    {{#published}}<a href="/admin/post/{{_id}}/depublish/images" class="btn btn-warning" style="float:right">Depublish</a>{{/published}}
+    <li><a href="/admin/post/{{_id}}/settings">{{#__}}Settings{{/__}}</a></li>
+    <li class="active"><a>{{#__}}Images{{/__}}</a></li>
+    <li><a href="/admin/post/{{_id}}/segments">{{#__}}Segments{{/__}}</a></li>
+    <li><a href="/admin/post/{{_id}}/attachments">{{#__}}Attachments{{/__}}</a></li>
+    <li><a href="/admin/post/{{_id}}/links">{{#__}}Links{{/__}}</a></li>
+    <li><a href="/admin/post/{{_id}}/preview">{{#__}}Preview{{/__}}</a></li>
+    {{^published}}<a href="/admin/post/{{_id}}/publish/images" class="btn btn-success" style="float:right">{{#__}}Publish{{/__}}</a>{{/published}}
+    {{#published}}<a href="/admin/post/{{_id}}/depublish/images" class="btn btn-warning" style="float:right">{{#__}}Depublish{{/__}}</a>{{/published}}
 </ul>
 
 {{#hasImages}}
@@ -22,20 +22,20 @@
                     </p>
                     <p style="text-align:center;">
                         {{#first}}
-                        <a class="btn disabled" style="float:left">Move left</a>
+                        <a class="btn disabled" style="float:left">{{#__}}Move left{{/__}}</a>
                         {{/first}}
                         {{^first}}
-                        <a class="btn" style="float:left" href="/admin/post/{{_id}}/images/moveleft/{{number}}">Move left</a>
+                        <a class="btn" style="float:left" href="/admin/post/{{_id}}/images/moveleft/{{number}}">{{#__}}Move left{{/__}}</a>
                         {{/first}}
-                        <a class="btn btn-danger" href="/admin/post/{{_id}}/images/delete/{{number}}">Delete</a>
+                        <a class="btn btn-danger" href="/admin/post/{{_id}}/images/delete/{{number}}">{{#__}}Delete{{/__}}</a>
                         {{#last}}
-                        <a class="btn disabled" style="float:right">Move right</a>
+                        <a class="btn disabled" style="float:right">{{#__}}Move right{{/__}}</a>
                         {{/last}}
                         {{^last}}
-                        <a class="btn" href="/admin/post/{{_id}}/images/moveright/{{number}}" style="float:right">Move right</a>
+                        <a class="btn" href="/admin/post/{{_id}}/images/moveright/{{number}}" style="float:right">{{#__}}Move right{{/__}}</a>
                         {{/last}}
                     </p>
-                    <input style="width:276px;" type="text" placeholder="short description of picture" value="{{caption}}" name="caption_{{number}}">
+                    <input style="width:276px;" type="text" placeholder="{{#__}}short description of picture{{/__}}" value="{{caption}}" name="caption_{{number}}">
                 </div>
             </li>
         {{/images}}
@@ -43,7 +43,7 @@
     <div class="row" style="height:10px"></div>
     <div class="row">
         <div class="span2">
-            <button type="submit" class="btn">Save captions</button>
+            <button type="submit" class="btn">{{#__}}Save captions{{/__}}</button>
         </div>
     </div>
 </form>
@@ -58,12 +58,12 @@
             <input type="file" name="file"></label>
         </div>
         <div class="span2">
-            <button type="submit" class="btn">Upload</button>
+            <button type="submit" class="btn">{{#__}}Upload{{/__}}</button>
         </div>
     </div>
 </form>
 
-<h4>Quick multifile upload</h4>
+<h4>{{#__}}Quick multifile upload{{/__}}</h4>
 <pre>
 export SITE="https://user:password@host"
 for i in *.jpg;do curl --insecure -F "file=@$i" "$SITE/admin/post/{{_id}}/images/add";done

@@ -1,22 +1,22 @@
 {{#post}}
 {{>admin_post}}
 <ul class="nav nav-tabs">
-    <li><a href="/admin/post/{{_id}}/settings">Settings</a></li>
-    <li><a href="/admin/post/{{_id}}/images">Images</a></li>
-    <li><a href="/admin/post/{{_id}}/segments">Segments</a></li>
-    <li><a href="/admin/post/{{_id}}/attachments">Attachments</a></li>
-    <li class="active"><a>Links</a></li>
-    <li><a href="/admin/post/{{_id}}/preview">Preview</a></li>
-    {{^published}}<a href="/admin/post/{{_id}}/publish/links" class="btn btn-success" style="float:right">Publish</a>{{/published}}
-    {{#published}}<a href="/admin/post/{{_id}}/depublish/links" class="btn btn-warning" style="float:right">Depublish</a>{{/published}}
+    <li><a href="/admin/post/{{_id}}/settings">{{#__}}Settings{{/__}}</a></li>
+    <li><a href="/admin/post/{{_id}}/images">{{#__}}Images{{/__}}</a></li>
+    <li><a href="/admin/post/{{_id}}/segments">{{#__}}Segments{{/__}}</a></li>
+    <li><a href="/admin/post/{{_id}}/attachments">{{#__}}Attachments{{/__}}</a></li>
+    <li class="active"><a>{{#__}}Links{{/__}}</a></li>
+    <li><a href="/admin/post/{{_id}}/preview">{{#__}}Preview{{/__}}</a></li>
+    {{^published}}<a href="/admin/post/{{_id}}/publish/links" class="btn btn-success" style="float:right">{{#__}}Publish{{/__}}</a>{{/published}}
+    {{#published}}<a href="/admin/post/{{_id}}/depublish/links" class="btn btn-warning" style="float:right">{{#__}}Depublish{{/__}}</a>{{/published}}
 </ul>
 
 <table class="table">
     <thead>
         <tr>
-            <th>Name</th>
-            <th>URL</th>
-            <th>Actions</th>
+            <th>{{#__}}Name{{/__}}</th>
+            <th>{{#__}}URL{{/__}}</th>
+            <th>{{#__}}Actions{{/__}}</th>
         </tr>
     </thead>
     <tbody>
@@ -25,8 +25,8 @@
             <td>{{name}}</td>
             <td>{{url}}</td>
             <td>
-                <a href="{{{url}}}" class="btn">Open</a>
-                <a href="/admin/post/{{_id}}/links/delete/{{number}}" class="btn btn-danger">Delete</a>
+                <a href="{{{url}}}" class="btn">{{#__}}Open{{/__}}</a>
+                <a href="/admin/post/{{_id}}/links/delete/{{number}}" class="btn btn-danger">{{#__}}Delete{{/__}}</a>
             </td>
         </tr>
     {{/links}}
@@ -36,13 +36,13 @@
 <form class="form" method="post" enctype="multipart/form-data" action="/admin/post/{{_id}}/links/add">
     <div class="row contentbox" style="margin-left:0;padding:10px 0 2px 0"x>
         <div class="span4">
-            <input type="text" placeholder="link name" name="name">
+            <input type="text" placeholder="{{#__}}link name{{/__}}" name="name">
         </div>
         <div class="span4 offset1">
-            <input type="text" placeholder="link url" name="url">
+            <input type="text" placeholder="{{#__}}link url{{/__}}" name="url">
         </div>
         <div class="span1 offset1">
-            <button type="submit" class="btn">Add</button>
+            <button type="submit" class="btn">{{#__}}Add{{/__}}</button>
         </div>
     </div>
 </form>

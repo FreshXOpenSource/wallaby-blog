@@ -1,38 +1,22 @@
 {{#post}}
-<style>
-    button, input, textarea {width:100%}
-</style>
-<div class="navbar navbar-inverse">
-    <div class="navbar-inner">
-        <a class="brand">{{title}}</a>
-        <ul class="nav">
-            <li><a href="/admin">Overview</a></li>
-            <li><a href="/admin/config">Config</a></li>
-            <li><a href="/admin/posts">Posts</a></li>
-            <li class="active"><a href="#">Post</a></li>
-        </ul>
-        <ul class="nav pull-right">
-            <li><a href="/">Back To Blog</a></li>
-        </ul>
-    </div>
-</div>
+{{>admin_post}}
 
 <ul class="nav nav-tabs">
-    <li><a href="/admin/post/{{_id}}/settings">Settings</a></li>
-    <li><a href="/admin/post/{{_id}}/images">Images</a></li>
-    <li class="active"><a>Segments</a></li>
-    <li><a href="/admin/post/{{_id}}/attachments">Attachments</a></li>
-    <li><a href="/admin/post/{{_id}}/links">Links</a></li>
-    <li><a href="/admin/post/{{_id}}/preview">Preview</a></li>
-    {{^published}}<a href="/admin/post/{{_id}}/publish/segments" class="btn btn-success" style="float:right">Publish</a>{{/published}}
-    {{#published}}<a href="/admin/post/{{_id}}/depublish/segments" class="btn btn-warning" style="float:right">Depublish</a>{{/published}}
+    <li><a href="/admin/post/{{_id}}/settings">{{#__}}Settings{{/__}}</a></li>
+    <li><a href="/admin/post/{{_id}}/images">{{#__}}Images{{/__}}</a></li>
+    <li class="active"><a>{{#__}}Segments{{/__}}</a></li>
+    <li><a href="/admin/post/{{_id}}/attachments">{{#__}}Attachments{{/__}}</a></li>
+    <li><a href="/admin/post/{{_id}}/links">{{#__}}Links{{/__}}</a></li>
+    <li><a href="/admin/post/{{_id}}/preview">{{#__}}Preview{{/__}}</a></li>
+    {{^published}}<a href="/admin/post/{{_id}}/publish/segments" class="btn btn-success" style="float:right">{{#__}}Publish{{/__}}</a>{{/published}}
+    {{#published}}<a href="/admin/post/{{_id}}/depublish/segments" class="btn btn-warning" style="float:right">{{#__}}Depublish{{/__}}</a>{{/published}}
 </ul>
 
 
 <!-- Modal -->
 <div id="selectImageModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="selectImageModalLabel" aria-hidden="true" style="background-color:rgba(0,0,0,0.8);width:730px;margin:-300px 0 0 -370px;">
   <div class="modal-header">
-    <h3 id="selectImageModalLabel">Pick Image</h3>
+    <h3 id="selectImageModalLabel">{{#__}}Pick Image{{/__}}</h3>
   </div>
   <div class="modal-body" style="max-height:500px;">
     <ul class="thumbnails">
@@ -50,7 +34,7 @@
     </ul>
   </div>
   <div class="modal-footer" style="background-color:transparent">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button> 
+    <button class="btn" data-dismiss="modal" aria-hidden="true">{{#__}}Cancel{{/__}}</button> 
   </div>
 </div>
 
@@ -63,17 +47,17 @@
     <div class="row bottomSeparator" style="height:10px"></div>
     <div class="row">
         <div class="span2">
-            <button type="submit" class="btn">Save</button>
+            <button type="submit" class="btn">{{#__}}Save{{/__}}</button>
         </div>
         <div class="span2 offset8">
-            <div class="btn-group" style="float:right">
-                <button class="btn dropdown-toggle" data-toggle="dropdown">Add Segment <span class="caret"></span></button>
+            <div class="btn-group" style="float:right" >
+                <button class="btn dropdown-toggle" data-toggle="dropdown">{{#__}}Add Segment {{/__}}<span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                    <li><a number="-1" type="text" class="addSegment">Text</a></li>
-                    <li><a number="-1" type="html" class="addSegment">HTML</a></li>
-                    <li><a number="-1" type="markdown" class="addSegment">Markdown</a></li>
-                    <li><a number="-1" type="image" class="addSegment">Image</a></li>
-                    <li><a number="-1" type="thumbnails" class="addSegment">Thumbnails</a></li>
+                    <li><a number="-1" type="text" class="addSegment">{{#__}}Text{{/__}}</a></li>
+                    <li><a number="-1" type="html" class="addSegment">{{#__}}HTML{{/__}}</a></li>
+                    <li><a number="-1" type="markdown" class="addSegment">{{#__}}Markdown{{/__}}</a></li>
+                    <li><a number="-1" type="image" class="addSegment">{{#__}}Image{{/__}}</a></li>
+                    <li><a number="-1" type="thumbnails" class="addSegment">{{#__}}Thumbnails{{/__}}</a></li>
                 </ul>
             </div>
         </div>

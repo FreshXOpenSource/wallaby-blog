@@ -2,46 +2,46 @@
     <div class="span12">
         <p>
             {{#hasThumbnails}}
-                <h4 style="float:left">Thumbnails</h4>
+                <h4 style="float:left">{{#__}}Thumbnails{{/__}}</h4>
             {{/hasThumbnails}}
             {{#hasImage}}
-                <h4 style="float:left">Image</h4>
+                <h4 style="float:left">{{#__}}Image{{/__}}</h4>
             {{/hasImage}}
             {{#hasText}}
-                <h4 style="float:left">Text</h4>
+                <h4 style="float:left">{{#__}}Text{{/__}}</h4>
             {{/hasText}}
             {{#hasHtml}}
-                <h4 style="float:left">HTML</h4>
+                <h4 style="float:left">{{#__}}HTML{{/__}}</h4>
             {{/hasHtml}}
             {{#hasMarkdown}}
-                <h4 style="float:left">Markdown</h4>
+                <h4 style="float:left">{{#__}}Markdown{{/__}}</h4>
             {{/hasMarkdown}}
             <div class="btn-toolbar" style="float:right">
-                    <a class="btn btn-collapse" data-toggle="collapse" data-target="#collapse_{{number}}">Collapse</a>
+                    <a class="btn btn-collapse" data-toggle="collapse" data-target="#collapse_{{number}}">{{#__}}Collapse{{/__}}</a>
                 {{#first}}
-                    <a class="btn btn-move btn-up disabled" number="{{number}}">Move Up</a>
+                    <a class="btn btn-move btn-up disabled" number="{{number}}">{{#__}}Move Up{{/__}}</a>
                 {{/first}}
                 {{^first}}
-                    <a class="btn btn-move btn-up" number="{{number}}">Move Up</a>
+                    <a class="btn btn-move btn-up" number="{{number}}">{{#__}}Move Up{{/__}}</a>
                 {{/first}}
                 {{#last}}
-                    <a class="btn btn-move btn-down disabled" number="{{number}}">Move Down</a>
+                    <a class="btn btn-move btn-down disabled" number="{{number}}">{{#__}}Move Down{{/__}}</a>
                 {{/last}}
                 {{^last}}
-                    <a class="btn btn-move btn-down" number="{{number}}">Move Down</a>
+                    <a class="btn btn-move btn-down" number="{{number}}">{{#__}}Move Down{{/__}}</a>
                 {{/last}}
                 <div class="btn-group">
-                    <button class="btn dropdown-toggle" data-toggle="dropdown">Add Segment Below <span class="caret"></span></button>
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">{{#__}}Add Segment Below {{/__}}<span class="caret"></span></button>
                     <ul class="dropdown-menu">
-                        <li><a number="{{number}}" type="text" class="addSegment">Text</a></li>
-                        <li><a number="{{number}}" type="html" class="addSegment">HTML</a></li>
-                        <li><a number="{{number}}" type="markdown" class="addSegment">Markdown</a></li>
-                        <li><a number="{{number}}" type="image" class="addSegment">Image</a></li>
-                        <li><a number="{{number}}" type="thumbnails" class="addSegment">Thumbnails</a></li>
+                        <li><a number="{{number}}" type="text" class="addSegment">{{#__}}Text{{/__}}</a></li>
+                        <li><a number="{{number}}" type="html" class="addSegment">{{#__}}HTML{{/__}}</a></li>
+                        <li><a number="{{number}}" type="markdown" class="addSegment">{{#__}}Markdown{{/__}}</a></li>
+                        <li><a number="{{number}}" type="image" class="addSegment">{{#__}}Image{{/__}}</a></li>
+                        <li><a number="{{number}}" type="thumbnails" class="addSegment">{{#__}}Thumbnails{{/__}}</a></li>
                     </ul>
                 </div>
-                <a class="btn btn-danger btn-delete" number="{{number}}">Delete Segment</a>
-                <a class="btn btn-submit">Save</a>
+                <a class="btn btn-danger btn-delete" number="{{number}}">{{#__}}Delete Segment{{/__}}</a>
+                <a class="btn btn-submit">{{#__}}Save{{/__}}</a>
             </div>
         </p>
     </div>
