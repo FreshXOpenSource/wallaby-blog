@@ -95,5 +95,17 @@
 	"asdasd": "asdasd",
 	"Welcome!": "Welcome!",
 	"Manage post": "Manage post",
-	"bla:Manage post": "bla:Manage post"
+	"January": "Januar",
+	"February": "Februar",
+    "March": "März",
+    "April": "April",
+    "May": "Mai",
+    "June": "Juni",
+    "July": "July",
+    "August": "August",
+    "September": "September",
+    "October": "Oktober",
+    "November": "November",
+    "December": "Dezember"
+
 }
