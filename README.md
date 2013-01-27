@@ -8,7 +8,9 @@ Installation
 
 First you need to install the node module with all dependencies with npm
 
-    npm install https://github.com/FreshXOpenSource/wallaby-blog/tarball/RELEASE_0_1_0
+    npm install wallaby-blog
+
+Then you must create the following two files:
 
 settings.json:
 
@@ -35,14 +37,14 @@ app.js:
 require('wallaby-blog').start();
 ```
 
-Use the default templates:
+To use our default template files just create the following to symbolic links or copy the *views* and *public* folders
 
 ```bash
 ln -s node_modules/wallaby-blog/views
 ln -s node_modules/wallaby-blog/public
 ```
 
-start:
+To start the blog-engine simply type
 
 ```bash
 node app.js
