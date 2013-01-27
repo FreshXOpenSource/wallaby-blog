@@ -76,5 +76,19 @@
 	"Archive:": "Archive:",
 	"Categories:": "Categories:",
 	"Selfmade blog engine. ": "Selfmade blog engine. ",
-	"Used technologies and libraries.": "Used technologies and libraries."
+	"Used technologies and libraries.": "Used technologies and libraries.",
+	"Unknown Error": "Unknown Error",
+	"No posts found!": "No posts found!",
+	"January": "January",
+	"February": "February",
+    "March": "March",
+    "April": "April",
+    "May": "May",
+    "June": "June",
+    "July": "July",
+    "August": "August",
+    "September": "September",
+    "October": "October",
+    "November": "November",
+    "December": "December"
 }

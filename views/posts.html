@@ -7,9 +7,9 @@
     <div>
         <h3 style="margin-bottom:0"><a href='/posts/{{_id}}'>{{name}}</a></h3>
         <span class="label label-info" style="margin-bottom:8px;">{{#__}}Posted {{/__}}{{date}}</span>
-        {{#categories}}
+        {{#categoryDicts}}
             <span class="label label-success" style="margin-bottom:8px;"><a href='/category/{{category}}' style="text-decoration:none;color:white;">{{category}}</a></span>
-        {{/categories}}
+        {{/categoryDicts}}
         {{#disqus_shortname}}
             <span class="label label-warning" style="margin-bottom:8px;"><a href='/posts/{{_id}}#disqus_thread' style="text-decoration:none;color:white;">{{#__}}0 Comments and 0 Reactions{{/__}}</a></span>
         {{/disqus_shortname}}
