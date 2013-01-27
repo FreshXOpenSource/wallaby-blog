@@ -31,6 +31,8 @@ settings.json:
 }
 ```
 
+> Note: Feel free to remove the elasticsearch part if you don't want to install java software on your server.
+
 app.js:
 
 ```javascript
