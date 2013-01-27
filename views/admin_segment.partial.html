@@ -17,6 +17,7 @@
                 <h4 style="float:left">Markdown</h4>
             {{/hasMarkdown}}
             <div class="btn-toolbar" style="float:right">
+                    <a class="btn btn-collapse" data-toggle="collapse" data-target="#collapse_{{number}}">Collapse</a>
                 {{#first}}
                     <a class="btn btn-move btn-up disabled" number="{{number}}">Move Up</a>
                 {{/first}}
@@ -45,7 +46,7 @@
         </p>
     </div>
 </div>
-<div class="row">
+<div class="row collapse in" id="collapse_{{number}}">
     <div class="span12">
         {{#hasThumbnails}}
         <div class="span8 offset2">
