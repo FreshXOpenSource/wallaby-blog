@@ -53,8 +53,8 @@
                 <div class="span4 contentbox">
                     {{{sidebar}}}
                     {{#hasSearch}}
-                    <form class="form-inline" onSubmit='window.location.href=$("#searchbutton").attr("href");return false;'>
-                        <input type="text" class="searchInput" placeholder="search in posts" value="{{searchKeyword}}" onkeyup='$("#searchbutton").attr("href","/search/"+this.value);'/>
+                    <form class="form-inline form-search" onSubmit='window.location.href=$("#searchbutton").attr("href");return false;'>
+                        <input type="text" class="searchInput search-query" placeholder="search in posts" value="{{searchKeyword}}" onkeyup='$("#searchbutton").attr("href","/search/"+this.value);'/>
                         <a class="btn" id="searchbutton" href="/search/{{searchKeyword}}">{{#__}}Search{{/__}}</a>
                     </form>
                     {{/hasSearch}}

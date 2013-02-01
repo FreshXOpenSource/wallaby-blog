@@ -35,6 +35,17 @@
     </div>
     <div class="row">
         <div class="span12">
+            <label>{{#__}}Locale{{/__}}</label>
+            <select name="locale">
+                {{#locales}}
+                <option value="{{locale}}" {{#selected}}selected{{/selected}}>{{name}}</option>
+                {{/locales}}
+            </select>
+            <input type="text" placeholder="{{#__}}register at disqus.com{{/__}}" value="{{disqus_shortname}}" name="disqus_shortname">
+        </div>
+    </div>
+    <div class="row">
+        <div class="span12">
             <label>{{#__}}Disqus Shortname{{/__}}</label>
             <input type="text" placeholder="{{#__}}register at disqus.com{{/__}}" value="{{disqus_shortname}}" name="disqus_shortname">
         </div>
