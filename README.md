@@ -27,9 +27,7 @@ settings.json:
         "host":"127.0.0.1",
         "port":9200
     },
-    "listenPort":8080,
-    "locales":["de","en"],
-    "locale":"en"
+    "listenPort":8080
 }
 ```
 
