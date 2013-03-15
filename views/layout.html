@@ -7,7 +7,8 @@
 
     <link href="/images/config/favicon.ico" rel="shortcut icon">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/bootstrap-lightbox.min.css" rel="stylesheet">
+    <link href="/css/jquery.fancybox.css" rel="stylesheet">
+    <link href="/css/jquery.fancybox-thumbs.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -145,7 +146,49 @@
     {{/error}}
 
     <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.mousewheel.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/bootstrap-lightbox.min.js"></script>
+    <script src="/js/jquery.fancybox.pack.js"></script>
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+    <script src="/js/jquery.easing.1.3.js"></script>
+    <script>
+        (function($) {
+            $(document).ready(function(){
+                $('.postContent a.bild').click(function() {
+                    var img = $(this).children('img');
+                    $('a.attachment img').each(function(i) {
+                        if($(this).attr('src') == img.attr('src')) {
+                            $.fancybox.open($('.bildgruppe'), {
+                                index: i,
+                                helpers: {
+                                    thumbs: {
+                                        width: 50,
+                                        height: 50
+                                    }
+                                }
+                            });
+                            return;
+                        }
+                    });
+                });
+/*
+                $(document).bind('cbox_complete', function () {
+                    // Only run if there is a title.
+                    if ($('#cboxTitle:empty').length == false) {
+                        setTimeout(function () { $('#cboxTitle').slideUp() }, 1500);
+                        $('#cboxLoadedContent img').bind('mouseover', function () {
+                            $('#cboxTitle').slideDown();
+                        });
+                        $('#cboxOverlay').bind('mouseover', function () {
+                            $('#cboxTitle').slideUp();
+                        });
+                    }
+                    else {
+                        $('#cboxTitle').hide();
+                    }
+                });
+           */ });
+        })( jQuery );
+    </script>
   </body>
 </html>
