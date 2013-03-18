@@ -112,5 +112,7 @@
 	"No posts found!": "No posts found!",
 	"Locale": "Sprache",
 	"locale_de": "Deutsch",
-	"locale_en": "Englisch"
+	"locale_en": "Englisch",
+	" Older posts": " Older posts",
+	"Newer posts ": "Newer posts "
 }

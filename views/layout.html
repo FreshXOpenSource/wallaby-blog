@@ -150,15 +150,16 @@
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/jquery.fancybox.pack.js"></script>
     <script src="/js/jquery.fancybox-thumbs.js"></script>
-    <script src="/js/jquery.easing.1.3.js"></script>
     <script>
         (function($) {
             $(document).ready(function(){
-                $('.postContent a.bild').click(function() {
+                $('.postContent a.bild').click(function(e) {
+                    e.preventDefault();
                     var img = $(this).children('img');
-                    $('a.attachment img').each(function(i) {
+                    var rel = $(this).attr('rel');
+                    $('a.attachment.' + rel + ' img').each(function(i) {
                         if($(this).attr('src') == img.attr('src')) {
-                            $.fancybox.open($('.bildgruppe'), {
+                            $.fancybox.open($('.bildgruppe.' + rel), {
                                 index: i,
                                 helpers: {
                                     thumbs: {

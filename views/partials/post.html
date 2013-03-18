@@ -1,6 +1,6 @@
 {{#images}}
     {{#attachment}}
-        <a class="bildgruppe attachment" style="display: none;" rel="bildgruppe_{{_id}}" href="/images/{{_id}}/{{attachment}}" title="{{{caption}}}" href="/images/{{_id}}/{{attachment}}">
+    <a class="bildgruppe attachment id_{{_id}}" style="display: none;" rel="id_{{_id}}" href="/images/{{_id}}/{{attachment}}" title="{{{caption}}}" href="/images/{{_id}}/{{attachment}}">
             <img src="/images/{{_id}}/{{attachment}}" alt="" />
         </a>
     {{/attachment}}
@@ -11,7 +11,7 @@
         {{#text}}<p>{{{text}}}</p>{{/text}}
         {{#image}}
             {{#caption}}<div class="thumbnail">{{/caption}}
-                <a  class="bild" href="#"> 
+                <a  class="bild id_{{_id}}" rel="id_{{_id}}" href="#"> 
                     <img src="/images/{{_id}}/{{image}}" alt=""/>
                 </a>
             {{#caption}}<p>{{{caption}}}</p></div>{{/caption}}
@@ -22,7 +22,7 @@
                 {{#thumbnails}}
                     <li class="span4">
                         {{#caption}}<div class="thumbnail">{{/caption}}
-                            <a  class="bild" href="#"> 
+                            <a  class="bild id_{{_id}}" rel="id_{{_id}}" href="#"> 
                                 <img src="/images/{{_id}}/{{image}}" alt=""/>
                             </a>
                         {{#caption}}<p>{{{caption}}}</p></div>{{/caption}}
