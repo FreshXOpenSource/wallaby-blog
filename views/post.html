@@ -5,9 +5,9 @@
 
 <h2>{{name}}</h2>
 <span class="label label-info" style="margin-bottom:8px;">{{#__}}Posted {{/__}}{{date}}</span>
-{{#categories}}
+{{#categoryDicts}}
     <span class="label label-success" style="margin-bottom:8px;"><a href='/category/{{category}}' style="text-decoration:none;color:white;">{{category}}</a></span>
-{{/categories}}
+{{/categoryDicts}}
 
 {{>post}}
 
